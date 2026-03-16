@@ -28,3 +28,8 @@ npm start
 ```
 
 Voir **GUIDE_INSTALLATION.md** pour les détails complets.
+
+## Déploiement
+
+- **Render** (recommandé) : voir **DEPLOIEMENT_RENDER.md**
+- **Railway** : voir **DEPLOIEMENT_RAILWAY.md**

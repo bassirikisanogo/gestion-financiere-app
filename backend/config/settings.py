@@ -18,7 +18,7 @@ DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 _raw_hosts = os.environ.get('ALLOWED_HOSTS', 'localhost,127.0.0.1')
 ALLOWED_HOSTS = [h.strip() for h in _raw_hosts.split(',') if h.strip()]
 if not DEBUG:
-    ALLOWED_HOSTS.extend(['.railway.app', '.up.railway.app'])
+    ALLOWED_HOSTS.extend(['.railway.app', '.up.railway.app', '.onrender.com'])
 
 INSTALLED_APPS = [
     'django.contrib.admin',
