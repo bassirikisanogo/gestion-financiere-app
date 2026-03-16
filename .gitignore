@@ -1,0 +1,47 @@
+# Environnement et secrets
+.env
+.env.local
+.env.*.local
+*.env
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+.venv/
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# Django
+*.log
+local_settings.py
+db.sqlite3
+media/
+staticfiles/
+*.pot
+
+# Node / Frontend
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+frontend/dist/
+
+# IDE et OS
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Divers
+*.sql
+!script_bdd.sql
