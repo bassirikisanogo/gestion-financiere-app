@@ -29,7 +29,7 @@ export default function Register() {
   }
 
   return (
-    <div style={{ maxWidth: 400, margin: '4rem auto', padding: '0 1rem' }}>
+    <div className="auth-page">
       <div className="card" style={{ padding: '2rem' }}>
         <h1 style={{ marginBottom: '0.5rem', fontSize: '1.5rem' }}>Créer un compte</h1>
         <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem' }}>

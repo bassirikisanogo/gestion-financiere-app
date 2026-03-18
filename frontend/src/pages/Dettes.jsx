@@ -53,8 +53,8 @@ export default function Dettes() {
 
   return (
     <>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem', flexWrap: 'wrap', gap: '1rem' }}>
-        <h1 style={{ fontSize: '1.5rem' }}>Dettes & créances</h1>
+      <div className="page-header">
+        <h1>Dettes & créances</h1>
         <button type="button" className="btn btn-primary" onClick={() => setModal(true)}>
           + Ajouter une dette / créance
         </button>

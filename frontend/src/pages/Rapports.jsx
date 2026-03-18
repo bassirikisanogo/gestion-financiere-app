@@ -29,7 +29,7 @@ export default function Rapports() {
 
   return (
     <>
-      <h1 style={{ marginBottom: '1.5rem', fontSize: '1.5rem' }}>Rapports</h1>
+      <h1 style={{ marginBottom: '1.5rem', fontSize: 'clamp(1.25rem, 4vw, 1.5rem)' }}>Rapports</h1>
 
       <div className="card" style={{ marginBottom: '1.5rem' }}>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', alignItems: 'flex-end' }}>
@@ -72,7 +72,7 @@ export default function Rapports() {
 
       {data && (
         <>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem', marginBottom: '1.5rem' }}>
+          <div className="page-grid-cards" style={{ marginBottom: '1.5rem' }}>
             <div className="card">
               <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: '0.25rem' }}>Période</p>
               <p style={{ fontSize: '1.1rem', fontWeight: 600 }}>{data.libelle_periode}</p>

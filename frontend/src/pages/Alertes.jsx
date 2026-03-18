@@ -33,7 +33,7 @@ export default function Alertes() {
 
   return (
     <>
-      <h1 style={{ marginBottom: '1.5rem', fontSize: '1.5rem' }}>Alertes</h1>
+      <h1 style={{ marginBottom: '1.5rem', fontSize: 'clamp(1.25rem, 4vw, 1.5rem)' }}>Alertes</h1>
 
       {error && (
         <div className="card" style={{ marginBottom: '1.5rem', borderColor: 'var(--danger)', background: 'rgba(239, 68, 68, 0.1)' }}>

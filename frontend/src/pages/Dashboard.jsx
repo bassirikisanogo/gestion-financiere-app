@@ -22,9 +22,9 @@ export default function Dashboard() {
 
   return (
     <>
-      <h1 style={{ marginBottom: '1.5rem', fontSize: '1.5rem' }}>Tableau de bord</h1>
+      <h1 style={{ marginBottom: '1.5rem', fontSize: 'clamp(1.25rem, 4vw, 1.5rem)' }}>Tableau de bord</h1>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1rem', marginBottom: '2rem' }}>
+      <div className="page-grid-cards" style={{ marginBottom: '2rem' }}>
         <div className="card">
           <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: '0.25rem' }}>Trésorerie actuelle</p>
           <p style={{ fontSize: '1.75rem', fontWeight: 700, color: tresorerie >= 0 ? 'var(--success)' : 'var(--danger)' }}>

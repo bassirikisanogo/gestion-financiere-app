@@ -26,7 +26,7 @@ export default function Login() {
   }
 
   return (
-    <div style={{ maxWidth: 400, margin: '4rem auto', padding: '0 1rem' }}>
+    <div className="auth-page">
       <div className="card" style={{ padding: '2rem' }}>
         <h1 style={{ marginBottom: '0.5rem', fontSize: '1.5rem' }}>Connexion</h1>
         <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem' }}>
