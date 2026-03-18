@@ -8,30 +8,31 @@ Ce guide décrit comment déployer l’application **Gestion Financière** (Djan
 
 - Un compte **Render** (gratuit) : https://render.com
 - Le projet sur **GitHub**
-- Une base **MySQL** accessible en ligne (ex. [PlanetScale](https://planetscale.com) gratuit, [Aiven](https://aiven.io), ou autre)
+- Une base **MySQL** accessible en ligne (ex. [Aiven](https://aiven.io) gratuit, [FreeDB](https://freedb.tech), ou autre)
 
 ---
 
 ## 2. Base de données MySQL (externe)
 
-Render ne fournit pas MySQL. Utilisez un hébergeur externe.
+Render ne fournit pas MySQL. Utilisez un hébergeur externe. Voici des options **gratuites** :
 
-### Option A : PlanetScale (gratuit)
+### Option A : Aiven (tier gratuit)
 
-1. Créez un compte sur https://planetscale.com
-2. **Create database** → nommez-la (ex. `gestion-financiere`)
-3. Dans **Connect** / **Connect with**, récupérez :
-   - **Host**
-   - **Username**
-   - **Password**
-   - **Database** (nom de la base)
-   - **Port** (souvent 3306)
+1. Créez un compte sur https://aiven.io
+2. **Create service** → **MySQL** → choisir le plan **Free** (1 CPU, 1 GB RAM).
+3. Récupérez les infos de connexion : **Host**, **Port**, **User**, **Password**, **Database**.
 
-Vous utiliserez ces valeurs dans les variables d’environnement du backend sur Render.
+### Option B : FreeDB.tech (gratuit)
 
-### Option B : Autre hébergeur MySQL
+1. Allez sur https://freedb.tech
+2. Créez un compte et une base MySQL (limite ~25 Mo en gratuit).
+3. Notez **host**, **user**, **password**, **database**, **port**.
 
-Tout hébergeur MySQL (Aiven, Scaleway, OVH, etc.) convient. Notez **host**, **port**, **user**, **password**, **database**.
+### Option C : Autre hébergeur MySQL
+
+Tout hébergeur MySQL (Scaleway, OVH, etc.) convient. Notez **host**, **port**, **user**, **password**, **database**.
+
+*Note : PlanetScale a supprimé son offre gratuite ; les plans affichés sont payants.*
 
 ---
 
@@ -119,7 +120,7 @@ Tout hébergeur MySQL (Aiven, Scaleway, OVH, etc.) convient. Notez **host**, **p
 
 | Composant | Variable | Exemple |
 |-----------|----------|---------|
-| Backend | `DB_HOST`, `DB_USER`, `DB_PASSWORD`, `DB_NAME`, `DB_PORT` | Valeurs de PlanetScale ou autre MySQL |
+| Backend | `DB_HOST`, `DB_USER`, `DB_PASSWORD`, `DB_NAME`, `DB_PORT` | Valeurs Aiven, FreeDB ou autre MySQL |
 | Backend | `CORS_ORIGINS` | `https://gestion-financiere-frontend.onrender.com` |
 | Frontend | `VITE_API_URL` | `https://gestion-financiere-backend.onrender.com/api` |
 
@@ -138,7 +139,7 @@ Tout hébergeur MySQL (Aiven, Scaleway, OVH, etc.) convient. Notez **host**, **p
 - **502 Bad Gateway** : vérifier les logs du Web Service (onglet **Logs**). Souvent une erreur de variables (DB_*, SECRET_KEY) ou une exception Django au démarrage.
 - **CORS / blocage des requêtes** : vérifier que `CORS_ORIGINS` contient exactement l’URL du frontend (https, pas de slash final).
 - **Frontend ne contacte pas l’API** : vérifier que `VITE_API_URL` a été défini **avant** le build et que le frontend a été redéployé après l’ajout de la variable.
-- **MySQL connection refused** : vérifier que l’IP de Render est autorisée (sur PlanetScale : Settings → Allow connections from any IP ou ajouter les IPs Render si documentées).
+- **MySQL connection refused** : vérifier que les connexions externes sont autorisées (paramètres de votre hébergeur MySQL : autoriser les IPs publiques ou « from anywhere » si disponible).
 
 ---
 
